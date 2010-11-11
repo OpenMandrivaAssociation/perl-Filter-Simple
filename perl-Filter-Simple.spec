@@ -1,9 +1,9 @@
 %define upstream_name    Filter-Simple
-%define upstream_version 0.84
+%define upstream_version 0.85
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Simplified source filtering
 License:    GPL+ or Artistic
