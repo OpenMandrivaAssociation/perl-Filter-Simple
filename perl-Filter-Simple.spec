@@ -1,20 +1,20 @@
 %define upstream_name    Filter-Simple
 %define upstream_version 0.87
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Simplified source filtering
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Filter/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Simplified source filtering
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Filter/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Filter::Util::Call)
-BuildRequires: perl(Text::Balanced)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Filter::Util::Call)
+BuildRequires:	perl(Text::Balanced)
+BuildArch:	noarch
 
 %description
 The Problem
@@ -35,24 +35,41 @@ The Problem
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Sun May 22 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.870.0-1mdv2011.0
++ Revision: 677342
+- update to new version 0.87
+
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 0.850.0-2
++ Revision: 656916
+- rebuild for updated spec-helper
+
+* Thu Nov 11 2010 Guillaume Rousse <guillomovitch@mandriva.org> 0.850.0-1mdv2011.0
++ Revision: 595972
+- update to new version 0.85
+
+* Tue Jul 13 2010 Jérôme Quelin <jquelin@mandriva.org> 0.840.0-2mdv2011.0
++ Revision: 552185
+- rebuild
+
+* Sun Jul 12 2009 Jérôme Quelin <jquelin@mandriva.org> 0.840.0-1mdv2010.0
++ Revision: 395254
+- import perl-Filter-Simple
 
 
+* Sun Jul 12 2009 cpan2dist 0.84-1mdv
+- initial mdv release, generated with cpan2dist
