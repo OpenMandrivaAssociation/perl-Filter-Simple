@@ -1,15 +1,15 @@
 %define upstream_name    Filter-Simple
-%define upstream_version 0.88
+%define upstream_version 0.91
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 0.88
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	Simplified source filtering
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Filter/Filter-Simple-0.88.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Filter/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Filter::Util::Call)
@@ -73,4 +73,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Sun Jul 12 2009 cpan2dist 0.84-1mdv
 - initial mdv release, generated with cpan2dist
+
 
