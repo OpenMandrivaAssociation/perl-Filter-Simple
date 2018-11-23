@@ -1,14 +1,14 @@
 %define upstream_name    Filter-Simple
-%define upstream_version 0.91
+%define upstream_version 0.94
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 
 Summary:	Simplified source filtering
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		http://metacpan.org/pod/Filter::Simple
 Source0:	http://www.cpan.org/modules/by-module/Filter/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
